@@ -65,19 +65,19 @@ function resetForm() {
             <div class="grid items-start grid-cols-1 gap-6 mt-8">
                 <div class="grid grid-cols-1 gap-6">
                     <label class="block">
-                        <span class="text-gray-700">Charactername</span>
+                        <span>Charactername</span>
                         <NInput v-model:value="name" type="text" />
                     </label>
                     <label class="block">
-                        <span class="text-gray-700">Character Level</span>
+                        <span>Character Level</span>
                         <NInputNumber v-model:value="charLevel" :min="0" :max="60" />
                     </label>
                     <label class="block">
-                        <span class="text-gray-700">Item Level</span>
+                        <span>Item Level</span>
                         <NInputNumber v-model:value="itemLevel" :min="0" :max="1700" />
                     </label>
                     <label class="block">
-                        <span class="text-gray-700">Class</span>
+                        <span>Class</span>
                         <NSelect v-model:value="selectedClass" :options="classOptions" />
                     </label>
                 </div>
