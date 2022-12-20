@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import {
+    NInput,
+    NInputNumber,
+    NSelect, 
+    NButton,
+} from 'naive-ui'
 import { useCharacters } from '~/stores/characters';
 import { Classes } from '~/types/classes'
 import { Character } from '~/types/types'
@@ -13,7 +19,6 @@ const isAddCharacter = ref(true)
 
 const classOptions = computed(() => {
     const test = Object.values(Classes)
-    console.log(test)
     return test
 })
 

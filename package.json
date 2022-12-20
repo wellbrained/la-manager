@@ -19,6 +19,7 @@
     "unplugin-vue-components": "^0.22.11"
   },
   "dependencies": {
+    "@css-render/vue3-ssr": "^0.15.11",
     "@headlessui/vue": "^1.7.4",
     "@pinia/nuxt": "^0.4.6",
     "@vueuse/nuxt": "^9.6.0",
