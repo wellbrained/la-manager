@@ -6,10 +6,16 @@ import { Character } from '~/types/types'
 const characters = useCharacters()
 
 const name = ref()
-const charLevel = ref()
-const itemLevel = ref()
+const charLevel = ref(0)
+const itemLevel = ref(0)
 const selectedClass = ref()
 const isAddCharacter = ref(true)
+
+const classOptions = computed(() => {
+    const test = Object.values(Classes)
+    console.log(test)
+    return test
+})
 
 function addCharacter() {
     const char: Character = {
@@ -55,26 +61,24 @@ function resetForm() {
                 <div class="grid grid-cols-1 gap-6">
                     <label class="block">
                         <span class="text-gray-700">Charactername</span>
-                        <input type="text" class="block w-full mt-1 input input-bordered" v-model="name">
+                        <NInput v-model:value="name" type="text" />
                     </label>
                     <label class="block">
                         <span class="text-gray-700">Character Level</span>
-                        <input type="number" class="block w-full mt-1 input input-bordered" v-model="charLevel">
+                        <NInputNumber v-model:value="charLevel" :min="0" :max="60" />
                     </label>
                     <label class="block">
                         <span class="text-gray-700">Item Level</span>
-                        <input type="number" class="block w-full mt-1 input input-bordered" v-model="itemLevel">
+                        <NInputNumber v-model:value="itemLevel" :min="0" :max="1700" />
                     </label>
                     <label class="block">
                         <span class="text-gray-700">Class</span>
-                        <select class="block w-full mt-1 select select-bordered" v-model="selectedClass">
-                            <option v-for="(c, index) in Classes" :key="index">{{ c }}</option>
-                        </select>
+                        <NSelect v-model:value="selectedClass" :options="classOptions" />
                     </label>
                 </div>
                 <div>
-                    <button class="btn" @click="addCharacter()" v-if="isAddCharacter">Add character</button>
-                    <button class="btn" @click="updateCharacter()" v-else>Update character</button>
+                    <NButton type="primary" @click="addCharacter()" v-if="isAddCharacter">Add Character</NButton>
+                    <NButton type="primary" @click="updateCharacter()" v-else>Update Character</NButton>
                 </div>
             </div>
         </div>
